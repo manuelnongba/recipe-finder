@@ -1,20 +1,20 @@
-import icons from '../../img/icons.svg';
+import View from './View.js';
 import previewView from './previewView.js';
-import View from './View';
+import icons from 'url:../../img/icons.svg'; // Parcel 2
 
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
-  _errormessage = 'No bookmarks yet. Find a recipe and bookmark it.';
-  _successMessage = '';
+  _errorMessage = 'No bookmarks yet. Find a nice recipe and bookmark it ;)';
+  _message = '';
 
-  addHamdlerRender(handler) {
+  addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }
 
-  _generateMarkUp() {
-    // console.log(this._data);
-
-    return this._data.map(result => previewView.render(result, false)).join('');
+  _generateMarkup() {
+    return this._data
+      .map(bookmark => previewView.render(bookmark, false))
+      .join('');
   }
 }
 

@@ -1,16 +1,15 @@
-import icons from '../../img/icons.svg';
 import View from './View.js';
 import previewView from './previewView.js';
+import icons from 'url:../../img/icons.svg'; // Parcel 2
 
-class ResultView extends View {
+class ResultsView extends View {
   _parentElement = document.querySelector('.results');
-  _errormessage = 'No recipes found on your query. Please try again!';
-  _successMessage = '';
+  _errorMessage = 'No recipes found for your query! Please try again ;)';
+  _message = '';
 
-  _generateMarkUp() {
-    console.log(this._data);
-
+  _generateMarkup() {
     return this._data.map(result => previewView.render(result, false)).join('');
   }
 }
-export default new ResultView();
+
+export default new ResultsView();
